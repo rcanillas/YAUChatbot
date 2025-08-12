@@ -1,0 +1,28 @@
+name: streamlit-ollama
+services:
+  streamlit:
+    image: python:3.12-slim
+    ports:
+      - '8501:8501'
+    networks:
+      - internal-net
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: bash -c "pip install uv && rm -rf .venv && uv sync --locked && ls && uv run streamlit run app.py"
+    restart: unless-stopped
+
+  ollama:
+    image: ollama/ollama
+    networks:
+      - internal-net
+    volumes:
+      - ollama_models:/root/.ollama/models
+    restart: unless-stopped
+
+networks:
+  internal-net:
+    driver: bridge
+
+volumes:
+  ollama_models: {}
