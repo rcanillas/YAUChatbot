@@ -10,4 +10,4 @@ TBD
 
 
 
-![](https://github.com/rcanillas/YAUChatbot/blob/master/misc/confused.gif)
+![](https://github.com/rcanillas/YAUChatbot/blob/main/misc/confused.gif)
